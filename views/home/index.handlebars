@@ -1,0 +1,29 @@
+ {{#each tweets}}
+<div class="panel">
+    <div class="panel-body">
+        {{{this.tweet}}}
+    </div>
+    <div class="panel-footer">
+        By: {{this.author.username}}, Views: {{this.views}}, Likes: {{this.likedBy.length}}
+        {{#if ../currentUser}} 
+            {{#if this.likeAllowed}}
+            <form action="/like/{{this._id}}" method="POST"  style="display:inline-block">
+                <input type="submit" class="btn btn-default" value="Like" />
+            </form>
+            {{else}}
+            <form action="/unlike/{{this._id}}" method="POST"  style="display:inline-block">
+                <input type="submit" class="btn btn-default" value="Unlike" />
+            </form>
+            {{/if}}
+         {{/if}}
+         {{#if ../isAdmin}}
+         <form action="/tweet/edit/{{this._id}}" method="GET" style="display:inline-block">
+            <input type="submit" class="btn btn-info" value="Edit" />
+        </form>
+        <form action="/tweet/delete/{{this._id}}" method="POST"  style="display:inline-block">
+            <input type="submit" class="btn btn-danger" value="Delete" />
+        </form>
+         {{/if}}
+    </div>
+</div>
+{{/each}}
