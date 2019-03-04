@@ -6,11 +6,12 @@ module.exports = {
   development: {
     rootPath: rootPath,
     db: process.env.MONGODB_URI,
-    port: 3030
+    port: process.env.PORT
   },
   staging: {
   },
   production: {
-    port: process.env.PORT
+    port: process.env.PORT,
+    db: process.env.MONGODB_URI,
   }
 }
