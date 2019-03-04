@@ -11,6 +11,9 @@
     "blog",
     "system"
   ],
+  "scripts": {
+    "start" : "node index.js"
+  },
   "author": "Gergana Dobrikova, Ilin Tabanliev",
   "license": "MIT",
   "dependencies": {
